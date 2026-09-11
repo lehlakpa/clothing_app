@@ -1,9 +1,11 @@
 import 'package:clothing_app/bloc/auth_bloc.dart';
 import 'package:clothing_app/bloc/auth_state.dart';
+
 import 'package:clothing_app/widgets/custom_navigation.dart';
+import 'package:clothing_app/widgets/custom_notification.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'home_screen.dart';
+
 import 'login_screen.dart';
 
 class AuthWrapper extends StatelessWidget {
@@ -11,7 +13,19 @@ class AuthWrapper extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return BlocBuilder<AuthBloc, AuthState>(
+    return BlocConsumer<AuthBloc, AuthState>(
+      listener: (context, state) {
+        // LOGIN SUCCESS
+        if (state is Authenticated) {
+          NotificationService.showLoginSuccess();
+        }
+
+        // LOGIN ERROR
+        if (state is AuthError) {
+          NotificationService.showLoginError(state.message);
+        }
+      },
+
       builder: (context, state) {
         // APP STARTING
         if (state is AuthInitial || state is AuthLoading) {
@@ -20,23 +34,22 @@ class AuthWrapper extends StatelessWidget {
           );
         }
 
-        // A successful profile request replaces `Authenticated` with
-        // `ProfileLoaded`, so both states must keep the user on Home.
+        // USER LOGGED IN
         if (state is Authenticated || state is ProfileLoaded) {
           return const CustomNavigation();
         }
 
-        // User is not logged in
+        // USER NOT LOGGED IN
         if (state is Unauthenticated) {
           return const LoginScreen();
         }
 
-        // Login error
+        // LOGIN ERROR
         if (state is AuthError) {
           return const LoginScreen();
         }
 
-        return const CustomNavigation();
+        return const LoginScreen();
       },
     );
   }

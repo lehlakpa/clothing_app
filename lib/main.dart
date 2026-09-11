@@ -4,13 +4,16 @@ import 'package:clothing_app/bloc/product/product_bloc.dart';
 import 'package:clothing_app/repository/auth_repository.dart';
 import 'package:clothing_app/repository/product_repoproduct_repository.dartsitory.dart';
 import 'package:clothing_app/services/product_service.dart';
+import 'package:clothing_app/widgets/custom_notification.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'screens/auth_wrapper.dart';
 import 'services/api_service.dart';
 import 'services/token_storage.dart';
 
-void main() {
+void main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+  await NotificationService.initialize();
   final apiService = ApiService();
 
   final tokenStorage = TokenStorage();
