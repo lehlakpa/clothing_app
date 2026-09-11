@@ -1,5 +1,6 @@
 import 'package:clothing_app/bloc/auth_bloc.dart';
 import 'package:clothing_app/bloc/auth_state.dart';
+import 'package:clothing_app/widgets/custom_navigation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'home_screen.dart';
@@ -19,11 +20,10 @@ class AuthWrapper extends StatelessWidget {
           );
         }
 
-        // LOGIN SUCCESS
         // A successful profile request replaces `Authenticated` with
         // `ProfileLoaded`, so both states must keep the user on Home.
         if (state is Authenticated || state is ProfileLoaded) {
-          return const HomeScreen();
+          return const CustomNavigation();
         }
 
         // User is not logged in
@@ -36,7 +36,7 @@ class AuthWrapper extends StatelessWidget {
           return const LoginScreen();
         }
 
-        return const LoginScreen();
+        return const CustomNavigation();
       },
     );
   }

@@ -1,6 +1,9 @@
 import 'package:clothing_app/bloc/auth_bloc.dart';
 import 'package:clothing_app/bloc/auth_event.dart';
+import 'package:clothing_app/bloc/product/product_bloc.dart';
 import 'package:clothing_app/repository/auth_repository.dart';
+import 'package:clothing_app/repository/product_repoproduct_repository.dartsitory.dart';
+import 'package:clothing_app/services/product_service.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'screens/auth_wrapper.dart';
@@ -18,8 +21,15 @@ void main() {
   );
 
   runApp(
-    BlocProvider(
-      create: (_) => AuthBloc(authRepository)..add(CheckAuth()),
+    MultiBlocProvider(
+      providers: [
+        BlocProvider<AuthBloc>(
+          create: (_) => AuthBloc(authRepository)..add(CheckAuth()),
+        ),
+        BlocProvider<ProductBloc>(
+          create: (_) => ProductBloc(ProductRepository(ProductService())),
+        ),
+      ],
       child: const MyApp(),
     ),
   );
