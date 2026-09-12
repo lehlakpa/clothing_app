@@ -9,4 +9,12 @@ class ProductRepository {
   Future<List<ProductModel>> fetchProducts() {
     return productService.fetchProducts();
   }
+
+  Future<List<ProductModel>> filteredProducts() async {
+    final products = await productService.fetchProducts();
+
+    return products
+        .where((product) => product.category?.toLowerCase() == 'beauty')
+        .toList();
+  }
 }

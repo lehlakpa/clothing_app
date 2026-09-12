@@ -4,6 +4,7 @@ class ProductModel {
   final double price;
   final String description;
   final String thumbnail;
+  final String? category; // Optional field for category
 
   ProductModel({
     required this.id,
@@ -11,6 +12,7 @@ class ProductModel {
     required this.price,
     required this.description,
     required this.thumbnail,
+    this.category,
   });
 
   factory ProductModel.fromJson(Map<String, dynamic> json) {
@@ -20,6 +22,7 @@ class ProductModel {
       price: (json['price'] as num).toDouble(),
       description: json['description'],
       thumbnail: json['thumbnail'],
+      category: json['category'],
     );
   }
 }

@@ -17,9 +17,6 @@ class _LoginScreenState extends State<LoginScreen> {
 
   bool obscurePassword = true;
 
-  // --------------------------------
-  // COLORS
-  // --------------------------------
   static const Color blue = Color(0xFF11164F);
   static const Color blueDark = Color(0xFF11164F);
   static const Color ink = Color(0xFF1B1B1F);
@@ -106,89 +103,88 @@ class _LoginScreenState extends State<LoginScreen> {
   }
 
   // --------------------------------
-  // TOP RIGHT CIRCLE
-  // --------------------------------
-  Widget _buildTopCircle() {
-    return Positioned(
-      top: -125,
-      right: -125,
-      child: Container(
-        width: 270,
+  // // TOP RIGHT CIRCLE
+  // // --------------------------------
+  // Widget _buildTopCircle() {
+  //   return Positioned(
+  //     top: -125,
+  //     right: -125,
+  //     child: Container(
+  //       width: 270,
+  //       height: 270,
+  //       decoration: BoxDecoration(
+  //         color: const Color.fromARGB(255, 171, 171, 184),
+  //         shape: BoxShape.circle,
+  //         boxShadow: [
+  //           BoxShadow(
+  //             color: Colors.black.withOpacity(0.06),
+  //             blurRadius: 30,
+  //             offset: const Offset(0, 15),
+  //           ),
+  //         ],
+  //       ),
+  //       child: Stack(
+  //         children: [
+  //           // WHITE OVERLAPPING CIRCLE
+  //           Positioned(
+  //             left: 25,
+  //             bottom: 28,
+  //             child: Container(
+  //               width: 165,
+  //               height: 165,
+  //               decoration: BoxDecoration(
+  //                 color: const Color.fromARGB(255, 47, 6, 233),
+  //                 shape: BoxShape.circle,
+  //               ),
+  //             ),
+  //           ),
+  //         ],
+  //       ),
+  //     ),
+  //   );
+  // }
 
-        height: 270,
-        decoration: BoxDecoration(
-          color: const Color.fromARGB(255, 171, 171, 184),
-          shape: BoxShape.circle,
-          boxShadow: [
-            BoxShadow(
-              color: Colors.black.withOpacity(0.06),
-              blurRadius: 30,
-              offset: const Offset(0, 15),
-            ),
-          ],
-        ),
-        child: Stack(
-          children: [
-            // WHITE OVERLAPPING CIRCLE
-            Positioned(
-              left: 25,
-              bottom: 28,
-              child: Container(
-                width: 165,
-                height: 165,
-                decoration: BoxDecoration(
-                  color: const Color.fromARGB(255, 47, 6, 233),
-                  shape: BoxShape.circle,
-                ),
-              ),
-            ),
-          ],
-        ),
-      ),
-    );
-  }
-
-  // --------------------------------
-  // BOTTOM LEFT CIRCLE
-  // --------------------------------
-  Widget _buildBottomCircle() {
-    return Positioned(
-      bottom: -135,
-      left: -135,
-      child: Container(
-        width: 290,
-        height: 290,
-        decoration: BoxDecoration(
-          color: const Color.fromARGB(255, 171, 171, 184),
-          shape: BoxShape.circle,
-          boxShadow: [
-            BoxShadow(
-              color: Colors.black.withOpacity(0.06),
-              blurRadius: 30,
-              offset: const Offset(0, 15),
-            ),
-          ],
-        ),
-        child: Stack(
-          children: [
-            // WHITE OVERLAPPING CIRCLE
-            Positioned(
-              right: 28,
-              top: 28,
-              child: Container(
-                width: 175,
-                height: 175,
-                decoration: BoxDecoration(
-                  color: const Color.fromARGB(255, 47, 6, 233),
-                  shape: BoxShape.circle,
-                ),
-              ),
-            ),
-          ],
-        ),
-      ),
-    );
-  }
+  // // --------------------------------
+  // // BOTTOM LEFT CIRCLE
+  // // --------------------------------
+  // Widget _buildBottomCircle() {
+  //   return Positioned(
+  //     bottom: -135,
+  //     left: -135,
+  //     child: Container(
+  //       width: 290,
+  //       height: 290,
+  //       decoration: BoxDecoration(
+  //         color: const Color.fromARGB(255, 171, 171, 184),
+  //         shape: BoxShape.circle,
+  //         boxShadow: [
+  //           BoxShadow(
+  //             color: Colors.black.withOpacity(0.06),
+  //             blurRadius: 30,
+  //             offset: const Offset(0, 15),
+  //           ),
+  //         ],
+  //       ),
+  //       child: Stack(
+  //         children: [
+  //           // WHITE OVERLAPPING CIRCLE
+  //           Positioned(
+  //             right: 28,
+  //             top: 28,
+  //             child: Container(
+  //               width: 175,
+  //               height: 175,
+  //               decoration: BoxDecoration(
+  //                 color: const Color.fromARGB(255, 47, 6, 233),
+  //                 shape: BoxShape.circle,
+  //               ),
+  //             ),
+  //           ),
+  //         ],
+  //       ),
+  //     ),
+  //   );
+  // }
 
   // --------------------------------
   // LOGIN BUTTON
@@ -223,7 +219,7 @@ class _LoginScreenState extends State<LoginScreen> {
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
                   Text(
-                    'LOGIN',
+                    'Login',
                     style: TextStyle(
                       fontSize: 14,
                       fontWeight: FontWeight.w700,
@@ -231,7 +227,6 @@ class _LoginScreenState extends State<LoginScreen> {
                     ),
                   ),
                   SizedBox(width: 10),
-                  Icon(Icons.arrow_forward_rounded, size: 20),
                 ],
               ),
       ),
@@ -275,8 +270,8 @@ class _LoginScreenState extends State<LoginScreen> {
           // --------------------------------
           // SIDE CIRCLES
           // --------------------------------
-          _buildTopCircle(),
-          _buildBottomCircle(),
+          // _buildTopCircle(),
+          // _buildBottomCircle(),
 
           // --------------------------------
           // CONTENT
@@ -298,29 +293,28 @@ class _LoginScreenState extends State<LoginScreen> {
                         // --------------------------------
                         // TITLE
                         // --------------------------------
-                        const Align(
-                          alignment: Alignment.centerLeft,
-                          child: Column(
-                            crossAxisAlignment: CrossAxisAlignment.start,
-                            children: [
-                              Text(
-                                'Welcome Back',
-                                style: TextStyle(
-                                  fontSize: 28,
-                                  fontWeight: FontWeight.w800,
-                                  color: ink,
-                                ),
-                              ),
-                              SizedBox(height: 7),
-                              Text(
-                                'Login to continue to your account',
-                                style: TextStyle(fontSize: 13, color: muted),
-                              ),
-                            ],
-                          ),
-                        ),
-
-                        const SizedBox(height: 32),
+                        // const Align(
+                        //   alignment: Alignment.centerLeft,
+                        //   child: Column(
+                        //     crossAxisAlignment: CrossAxisAlignment.start,
+                        //     children: [
+                        //       Text(
+                        //         'Welcome Back',
+                        //         style: TextStyle(
+                        //           fontSize: 28,
+                        //           fontWeight: FontWeight.w800,
+                        //           color: ink,
+                        //         ),
+                        //       ),
+                        //       SizedBox(height: 7),
+                        //       Text(
+                        //         'Login to continue to your account',
+                        //         style: TextStyle(fontSize: 13, color: muted),
+                        //       ),
+                        //     ],
+                        //   ),
+                        // ),
+                        // const SizedBox(height: 32),
 
                         // --------------------------------
                         // LOGIN CARD
