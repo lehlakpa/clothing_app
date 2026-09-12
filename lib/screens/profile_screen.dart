@@ -3,6 +3,7 @@ import 'package:clothing_app/bloc/auth_event.dart';
 import 'package:clothing_app/bloc/auth_state.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:clothing_app/constants/constants_colors.dart';
 
 class ProfileScreen extends StatefulWidget {
   const ProfileScreen({super.key});
@@ -12,8 +13,6 @@ class ProfileScreen extends StatefulWidget {
 }
 
 class _ProfileScreenState extends State<ProfileScreen> {
-  static const Color navy = Color(0xFF1C2470);
-
   @override
   void initState() {
     super.initState();
@@ -23,7 +22,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: const Color(0xFFE9E9EC),
+      backgroundColor: ConstantsColors.background,
       body: SafeArea(
         child: Stack(
           children: [
@@ -93,14 +92,14 @@ class _ProfileScreenState extends State<ProfileScreen> {
                   fontSize: 22,
                   fontWeight: FontWeight.w800,
                   letterSpacing: 0.5,
-                  color: Color(0xFF1B1B1F),
+                  color: ConstantsColors.textPrimary,
                 ),
               ),
               IconButton(
                 onPressed: () {
                   context.read<AuthBloc>().add(LogoutRequested());
                 },
-                icon: const Icon(Icons.logout, color: navy),
+                icon: const Icon(Icons.logout, color: ConstantsColors.navy),
               ),
             ],
           ),
@@ -116,11 +115,11 @@ class _ProfileScreenState extends State<ProfileScreen> {
               gradient: const LinearGradient(
                 begin: Alignment.topLeft,
                 end: Alignment.bottomRight,
-                colors: [Color(0xFF242C86), navy],
+                colors: [ConstantsColors.bannerBlue, ConstantsColors.navy],
               ),
               boxShadow: [
                 BoxShadow(
-                  color: navy.withOpacity(0.35),
+                color: ConstantsColors.navy.withOpacity(0.35),
                   blurRadius: 20,
                   offset: const Offset(0, 10),
                 ),
@@ -146,7 +145,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
             style: const TextStyle(
               fontSize: 18,
               fontWeight: FontWeight.w700,
-              color: Color(0xFF1B1B1F),
+              color: ConstantsColors.textPrimary,
             ),
           ),
           const SizedBox(height: 4),
@@ -162,7 +161,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
             width: double.infinity,
             padding: const EdgeInsets.symmetric(vertical: 8),
             decoration: BoxDecoration(
-              color: const Color(0xFFF7F7F9),
+              color: ConstantsColors.cardBackground,
               borderRadius: BorderRadius.circular(22),
               boxShadow: [
                 BoxShadow(
@@ -209,11 +208,11 @@ class _ProfileScreenState extends State<ProfileScreen> {
             width: 36,
             height: 36,
             decoration: BoxDecoration(
-              color: navy.withOpacity(0.08),
+              color: ConstantsColors.navy.withOpacity(0.08),
               borderRadius: BorderRadius.circular(10),
             ),
             alignment: Alignment.center,
-            child: Icon(icon, size: 18, color: navy),
+            child: Icon(icon, size: 18, color: ConstantsColors.navy),
           ),
           const SizedBox(width: 14),
           Expanded(
@@ -230,7 +229,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
                   style: const TextStyle(
                     fontSize: 14.5,
                     fontWeight: FontWeight.w600,
-                    color: Color(0xFF1B1B1F),
+                    color: ConstantsColors.textPrimary,
                   ),
                 ),
               ],
@@ -265,7 +264,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
             height: size,
             decoration: const BoxDecoration(
               shape: BoxShape.circle,
-              color: navy,
+              color: ConstantsColors.navy,
             ),
           ),
           Positioned(

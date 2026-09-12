@@ -1,4 +1,4 @@
-import 'package:clothing_app/repository/product_repoproduct_repository.dartsitory.dart';
+import 'package:clothing_app/repository/product_repository.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
 import 'product_event.dart';

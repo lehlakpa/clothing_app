@@ -28,4 +28,15 @@ class AuthModel {
       lastName: json['lastName'] ?? '',
     );
   }
+  Map<String, dynamic> toJson() {
+    return {
+      'accessToken': accessToken,
+      'refreshToken': refreshToken,
+      'id': id,
+      'username': username,
+      'email': email,
+      'firstName': firstName,
+      'lastName': lastName,
+    };
+  }
 }

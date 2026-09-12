@@ -3,6 +3,7 @@ import 'package:clothing_app/screens/product_screen.dart';
 import 'package:clothing_app/screens/profile_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:clothing_app/constants/constants_colors.dart';
 
 class CustomNavigation extends StatefulWidget {
   const CustomNavigation({super.key});
@@ -80,7 +81,7 @@ class _CustomNavigationState extends State<CustomNavigation> {
                     ),
                     decoration: BoxDecoration(
                       color: isSelected
-                          ? const Color(0xFF223B2E).withValues(alpha: 0.12)
+                          ? ConstantsColors.navigationGreen.withValues(alpha: 0.12)
                           : Colors.transparent,
                       borderRadius: BorderRadius.circular(20),
                     ),
@@ -93,7 +94,7 @@ class _CustomNavigationState extends State<CustomNavigation> {
                           child: Icon(
                             isSelected ? item.selectedIcon : item.icon,
                             color: isSelected
-                                ? const Color(0xFF223B2E)
+                                ? ConstantsColors.navigationGreen
                                 : Colors.grey[600],
                             size: 24,
                           ),
@@ -103,7 +104,7 @@ class _CustomNavigationState extends State<CustomNavigation> {
                           Text(
                             item.label,
                             style: const TextStyle(
-                              color: Color(0xFF223B2E),
+                              color: ConstantsColors.navigationGreen,
                               fontWeight: FontWeight.w700,
                               fontSize: 13.5,
                             ),

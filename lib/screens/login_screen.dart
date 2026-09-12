@@ -3,6 +3,7 @@ import 'package:clothing_app/bloc/auth_event.dart';
 import 'package:clothing_app/bloc/auth_state.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:clothing_app/constants/constants_colors.dart';
 
 class LoginScreen extends StatefulWidget {
   const LoginScreen({super.key});
@@ -16,13 +17,6 @@ class _LoginScreenState extends State<LoginScreen> {
   final passwordController = TextEditingController();
 
   bool obscurePassword = true;
-
-  static const Color blue = Color(0xFF11164F);
-  static const Color blueDark = Color(0xFF11164F);
-  static const Color ink = Color(0xFF1B1B1F);
-  static const Color muted = Color(0xFF11164F);
-  static const Color fieldBg = Color(0xFFF5F5F7);
-  static const Color border = Color(0xFFE4E4E8);
 
   @override
   void dispose() {
@@ -47,7 +41,7 @@ class _LoginScreenState extends State<LoginScreen> {
           ),
           behavior: SnackBarBehavior.floating,
           margin: const EdgeInsets.all(16),
-          backgroundColor: blue,
+          backgroundColor: ConstantsColors.navyDark,
           shape: RoundedRectangleBorder(
             borderRadius: BorderRadius.circular(14),
           ),
@@ -74,9 +68,9 @@ class _LoginScreenState extends State<LoginScreen> {
     return Container(
       height: 55,
       decoration: BoxDecoration(
-        color: fieldBg,
+        color: ConstantsColors.fieldBackground,
         borderRadius: BorderRadius.circular(15),
-        border: Border.all(color: border, width: 1),
+        border: Border.all(color: ConstantsColors.fieldBorder, width: 1),
       ),
       child: TextField(
         controller: controller,
@@ -87,104 +81,23 @@ class _LoginScreenState extends State<LoginScreen> {
         onSubmitted: obscureText ? (_) => login() : null,
         style: const TextStyle(
           fontSize: 14,
-          color: ink,
+          color: ConstantsColors.textPrimary,
           fontWeight: FontWeight.w500,
         ),
         decoration: InputDecoration(
-          prefixIcon: Icon(icon, color: blue, size: 21),
+          prefixIcon: Icon(icon, color: ConstantsColors.navyDark, size: 21),
           suffixIcon: suffixIcon,
           hintText: hintText,
-          hintStyle: const TextStyle(fontSize: 14, color: muted),
+          hintStyle: const TextStyle(
+            fontSize: 14,
+            color: ConstantsColors.navyDark,
+          ),
           border: InputBorder.none,
           contentPadding: const EdgeInsets.symmetric(vertical: 17),
         ),
       ),
     );
   }
-
-  // --------------------------------
-  // // TOP RIGHT CIRCLE
-  // // --------------------------------
-  // Widget _buildTopCircle() {
-  //   return Positioned(
-  //     top: -125,
-  //     right: -125,
-  //     child: Container(
-  //       width: 270,
-  //       height: 270,
-  //       decoration: BoxDecoration(
-  //         color: const Color.fromARGB(255, 171, 171, 184),
-  //         shape: BoxShape.circle,
-  //         boxShadow: [
-  //           BoxShadow(
-  //             color: Colors.black.withOpacity(0.06),
-  //             blurRadius: 30,
-  //             offset: const Offset(0, 15),
-  //           ),
-  //         ],
-  //       ),
-  //       child: Stack(
-  //         children: [
-  //           // WHITE OVERLAPPING CIRCLE
-  //           Positioned(
-  //             left: 25,
-  //             bottom: 28,
-  //             child: Container(
-  //               width: 165,
-  //               height: 165,
-  //               decoration: BoxDecoration(
-  //                 color: const Color.fromARGB(255, 47, 6, 233),
-  //                 shape: BoxShape.circle,
-  //               ),
-  //             ),
-  //           ),
-  //         ],
-  //       ),
-  //     ),
-  //   );
-  // }
-
-  // // --------------------------------
-  // // BOTTOM LEFT CIRCLE
-  // // --------------------------------
-  // Widget _buildBottomCircle() {
-  //   return Positioned(
-  //     bottom: -135,
-  //     left: -135,
-  //     child: Container(
-  //       width: 290,
-  //       height: 290,
-  //       decoration: BoxDecoration(
-  //         color: const Color.fromARGB(255, 171, 171, 184),
-  //         shape: BoxShape.circle,
-  //         boxShadow: [
-  //           BoxShadow(
-  //             color: Colors.black.withOpacity(0.06),
-  //             blurRadius: 30,
-  //             offset: const Offset(0, 15),
-  //           ),
-  //         ],
-  //       ),
-  //       child: Stack(
-  //         children: [
-  //           // WHITE OVERLAPPING CIRCLE
-  //           Positioned(
-  //             right: 28,
-  //             top: 28,
-  //             child: Container(
-  //               width: 175,
-  //               height: 175,
-  //               decoration: BoxDecoration(
-  //                 color: const Color.fromARGB(255, 47, 6, 233),
-  //                 shape: BoxShape.circle,
-  //               ),
-  //             ),
-  //           ),
-  //         ],
-  //       ),
-  //     ),
-  //   );
-  // }
 
   // --------------------------------
   // LOGIN BUTTON
@@ -198,8 +111,8 @@ class _LoginScreenState extends State<LoginScreen> {
       child: ElevatedButton(
         onPressed: isLoading ? null : login,
         style: ElevatedButton.styleFrom(
-          backgroundColor: blue,
-          disabledBackgroundColor: blue.withOpacity(0.65),
+          backgroundColor: ConstantsColors.navyDark,
+          disabledBackgroundColor: ConstantsColors.navyDark.withOpacity(0.65),
           foregroundColor: Colors.white,
           elevation: 0,
           shape: RoundedRectangleBorder(
@@ -246,14 +159,14 @@ class _LoginScreenState extends State<LoginScreen> {
       margin: const EdgeInsets.only(top: 15),
       padding: const EdgeInsets.all(12),
       decoration: BoxDecoration(
-        color: Colors.red.withOpacity(0.06),
+        color: ConstantsColors.red.withOpacity(0.06),
         borderRadius: BorderRadius.circular(12),
-        border: Border.all(color: Colors.red.withOpacity(0.15)),
+        border: Border.all(color: ConstantsColors.red.withOpacity(0.15)),
       ),
       child: Text(
         state.message,
         textAlign: TextAlign.center,
-        style: const TextStyle(color: Colors.red, fontSize: 13),
+        style: const TextStyle(color: ConstantsColors.red, fontSize: 13),
       ),
     );
   }
@@ -289,7 +202,7 @@ class _LoginScreenState extends State<LoginScreen> {
                       children: [
                         // Space for top circle
                         const SizedBox(height: 75),
-
+                        Text("username:emilys /pass- emilyspass"),
                         // --------------------------------
                         // TITLE
                         // --------------------------------
@@ -325,7 +238,10 @@ class _LoginScreenState extends State<LoginScreen> {
                           decoration: BoxDecoration(
                             color: Colors.white,
                             borderRadius: BorderRadius.circular(24),
-                            border: Border.all(color: border, width: 1),
+                            border: Border.all(
+                              color: ConstantsColors.fieldBorder,
+                              width: 1,
+                            ),
                             boxShadow: [
                               BoxShadow(
                                 color: Colors.black.withOpacity(0.06),
@@ -343,7 +259,7 @@ class _LoginScreenState extends State<LoginScreen> {
                                   fontSize: 20,
                                   fontWeight: FontWeight.w800,
                                   letterSpacing: 1,
-                                  color: ink,
+                                  color: ConstantsColors.textPrimary,
                                 ),
                               ),
 
@@ -375,7 +291,7 @@ class _LoginScreenState extends State<LoginScreen> {
                                         ? Icons.visibility_off_outlined
                                         : Icons.visibility_outlined,
                                     size: 20,
-                                    color: muted,
+                                    color: ConstantsColors.navyDark,
                                   ),
                                 ),
                               ),
@@ -388,7 +304,7 @@ class _LoginScreenState extends State<LoginScreen> {
                                 child: TextButton(
                                   onPressed: () {},
                                   style: TextButton.styleFrom(
-                                    foregroundColor: blue,
+                                    foregroundColor: ConstantsColors.navyDark,
                                     padding: EdgeInsets.zero,
                                     minimumSize: Size.zero,
                                     tapTargetSize:
@@ -425,14 +341,17 @@ class _LoginScreenState extends State<LoginScreen> {
                           children: [
                             const Text(
                               "Don't have an account?",
-                              style: TextStyle(fontSize: 13, color: muted),
+                              style: TextStyle(
+                                fontSize: 13,
+                                color: ConstantsColors.navyDark,
+                              ),
                             ),
                             TextButton(
                               onPressed: () {
                                 // Navigate to RegisterScreen
                               },
                               style: TextButton.styleFrom(
-                                foregroundColor: blue,
+                                foregroundColor: ConstantsColors.navyDark,
                                 padding: const EdgeInsets.only(left: 6),
                                 minimumSize: Size.zero,
                                 tapTargetSize: MaterialTapTargetSize.shrinkWrap,

@@ -41,43 +41,7 @@ class AuthRepository {
 
     return await apiService.getProfile(accessToken);
   }
-  // // GET PROFILE
-  // Future<Map<String, dynamic>> getProfile() async {
-  //   String? accessToken = await tokenStorage.getAccessToken();
 
-  //   if (accessToken == null) {
-  //     throw Exception('No access token');
-  //   }
-
-  //   try {
-  //     return await apiService.getProfile(accessToken);
-  //   } catch (e) {
-  //     // Access token might have expired.
-  //     final refreshToken = await tokenStorage.getRefreshToken();
-
-  //     if (refreshToken == null) {
-  //       throw Exception('No refresh token');
-  //     }
-
-  //     // Get new access token
-  //     final data = await apiService.refreshToken(refreshToken);
-
-  //     final newAccessToken = data['accessToken'];
-
-  //     final newRefreshToken = data['refreshToken'] ?? refreshToken;
-
-  //     // Save new tokens
-  //     await tokenStorage.saveTokens(
-  //       accessToken: newAccessToken,
-  //       refreshToken: newRefreshToken,
-  //     );
-
-  //     // Try profile again
-  //     return await apiService.getProfile(newAccessToken);
-  //   }
-  // }
-
-  // LOGOUT
   Future<void> logout() async {
     await tokenStorage.clearTokens();
   }

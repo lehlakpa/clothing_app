@@ -1,5 +1,6 @@
 import 'package:clothing_app/bloc/auth_bloc.dart';
 import 'package:clothing_app/bloc/auth_state.dart';
+import 'package:clothing_app/screens/logo_show_screen.dart';
 
 import 'package:clothing_app/widgets/custom_navigation.dart';
 import 'package:clothing_app/widgets/custom_notification.dart';
@@ -29,9 +30,7 @@ class AuthWrapper extends StatelessWidget {
       builder: (context, state) {
         // APP STARTING
         if (state is AuthInitial || state is AuthLoading) {
-          return const Scaffold(
-            body: Center(child: CircularProgressIndicator()),
-          );
+          return const Scaffold(body: Center(child: const LogoShowScreen()));
         }
 
         // USER LOGGED IN
